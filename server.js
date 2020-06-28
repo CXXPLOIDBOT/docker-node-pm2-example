@@ -7,7 +7,11 @@ const HOST = '0.0.0.0';
 
 const App = Express();
 
-App.get('/', (req, res) => {
+App.use((req, res, next) => {
+  console.log(`${req.method} - ${req.url}`);
+});
+
+App.get('/:anything?', (req, res) => {
   res.send([
     `Hello World`,
     `v${process.env.APP_VERSION}`, // Environment variable set in Dockerfile
