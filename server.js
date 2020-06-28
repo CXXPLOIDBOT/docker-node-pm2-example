@@ -8,7 +8,11 @@ const HOST = '0.0.0.0';
 const App = Express();
 
 App.get('/', (req, res) => {
-  res.send([`Hello World`,`v${process.env.APP_VERSION}`, `${require("os").userInfo().username}`].join(`<br/>`));
+  res.send([
+    `Hello World`,
+    `v${process.env.APP_VERSION}`, // Environment variable set in Dockerfile
+    `${require("os").userInfo().username}` // Not running as root user
+  ].join(`<br/>`));
 });
 
 App.listen(PORT, HOST);
