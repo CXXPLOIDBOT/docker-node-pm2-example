@@ -5,3 +5,5 @@
 `docker ps` shows running images
 
 `docker stop <container_id>` stops running image
+
+`docker system prune` to remove all dangling data

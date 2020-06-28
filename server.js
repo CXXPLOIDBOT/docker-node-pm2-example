@@ -8,9 +8,8 @@ const HOST = '0.0.0.0';
 const App = Express();
 
 App.get('/', (req, res) => {
-  res.send('Hello World');
+  res.send([`Hello World`,`v${process.env.APP_VERSION}`, `${require("os").userInfo().username}`].join(`<br/>`));
 });
 
 App.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
-console.log(`App version ${process.env.APP_VERSION}`);
