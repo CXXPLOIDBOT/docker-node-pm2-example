@@ -7,10 +7,11 @@ WORKDIR /usr/src/app
 # Dependencies
 COPY package*.json ./
 RUN npm install pm2 -g
+RUN npm install yarn
 RUN npm install
 
 # Budle app source
-COPY . .
+COPY run.cjs
 
 # Expose port
 EXPOSE 8080
